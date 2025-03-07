@@ -23,7 +23,7 @@ for repo in */; do
         # else
         #     file_name="$i""${repo//"-challenge"/""}"_README.md
         # fi
-        cp ./README.md ./"$READMEs_dir/$repo-README.md"
+        cp README.md "$READMEs_dir/$repo-README.md"
     fi
     # i=$((i+1))
 done
