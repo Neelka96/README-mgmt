@@ -9,15 +9,18 @@ MASTER_README="$README_mgmt/MASTER_README.md"
 # **********************************************
 # 1) # Go to the folder containing your README files:
 # **********************************************
-
-
 cd "$repos_root" || exit 1
 
+i=2
 for repo in */; do
     if [ -d "$repo" ]; then
         cd "$repo" || exit 1
-        cp README.md "$READMEs_dir"
+        if [ "$i" -lt 10 ]; then
+            file_name=0"$i""${repo//"-challenge"/""}"_README.md
+        fi
+        cp README.md "$READMEs_dir"/"$file_name"
     fi
+    i=$((i+1))
 done
 
 # **********************************************
