@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Variable Declarations for easy writing
 repos_root="/Users/neelagarwal/Projects/DataClassRepos"
 README_mgmt="/Users/neelagarwal/Projects/README-mgmt"
 
@@ -7,40 +8,55 @@ READMEs_dir="$README_mgmt/READMEs"
 MASTER_README="$README_mgmt/MASTER_README.md"
 
 # **********************************************
-# 1) # Go to the folder containing your README files:
+# 1) # Remove old README's directory and create a new one:
 # **********************************************
+if [ -d "$READMEs_dir"]; then
+    rm -r "$READMEs_dir"
+    echo READMEs directory already exists - deleting...
+fi
+
+mkdir "$READMEs_dir"
+echo READMEs directory created.
+
+# **********************************************
+# 2) # Go to the each Repo and extract the README file:
+# **********************************************
+# Go to main repo folder
 cd "$repos_root" || exit 1
 echo -e "\nWorking Dir:\n$PWD\n"
 
-# i=2
+# Loop through each Repository name in the root
 echo -e "Looping through existing repositories...\n"
 for repo in */; do
+    # Make sure it's a directory first and then...
     if [ -d "$repo" ]; then
+        # Move to that repo or exit on error
         cd "$repo" || exit 1
         echo -e "Grabbing README.md from $repo\n"
-        # if [ "$i" -lt 10 ]; then
-        #     file_name=0"$i""${repo//"-challenge"/""}"_README.md
-        # else
-        #     file_name="$i""${repo//"-challenge"/""}"_README.md
-        # fi
-        cp README.md "$READMEs_dir/$repo-README.md"
+        # Copy README with new name
+        length=${#repo}
+        newName=${repo:0:length-1}
+        newName=${newName/-challenge/}_README.md
+        echo "$newName"
+        cp README.md "$READMEs_dir/$newName"
+    else 
+        exit 1
     fi
-    # i=$((i+1))
 done
 
 # **********************************************
-# 2) Remove the old MASTER_README.md if it exists
+# 3) Remove the old MASTER_README.md if it exists
 #    The '-f' option won't complain if the file isn't there.
 # **********************************************
 rm -f "$MASTER_README"
 
 # **********************************************
-# 3) # Go to the folder containing your README files:
+# 4) # Go to the folder containing your README files:
 # **********************************************
 cd "$READMEs_dir" || exit 1
 
 # **********************************************
-# 4) Concatenate all files that end with "_README.md"
+# 5) Concatenate all files that end with "_README.md"
 #    into MASTER-README.md (Globbing)
 # **********************************************
 for file in *_README.md
