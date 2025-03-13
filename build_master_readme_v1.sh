@@ -1,19 +1,15 @@
 #!/bin/bash
 
-cd /Users/neelagarwal/Projects/DataClassRepos || exit 1
-
-
-
 # **********************************************
-# 1) # Go to the folder containing your README files:
-# **********************************************
-cd READMEs || exit 1
-
-# **********************************************
-# 2) Remove the old MASTER_README.md if it exists
+# 1) Remove the old MASTER_README.md if it exists
 #    The '-f' option won't complain if the file isn't there.
 # **********************************************
-rm -f ../Users/neelagarwal/Projects//MASTER_README.md
+rm -f /Users/neelagarwal/Projects/README-mgmt/MASTER_README.md
+
+# **********************************************
+# 2) # Go to the folder containing your README files:
+# **********************************************
+cd /Users/neelagarwal/Projects/README-mgmt/READMEs || exit 1
 
 # **********************************************
 # 3) Concatenate all files that end with "_README.md"
