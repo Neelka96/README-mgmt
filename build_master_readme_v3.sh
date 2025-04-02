@@ -6,7 +6,7 @@ README_mgmt="/Users/neelagarwal/Projects/README-mgmt"
 MASTER_README="$README_mgmt/MASTER_README.md"
 
 # **********************************************
-# 3) Remove the old MASTER_README.md if it exists
+# 1) Remove the old MASTER_README.md if it exists
 #    The '-f' option won't complain if the file isn't there.
 # **********************************************
 rm -f "$MASTER_README"
