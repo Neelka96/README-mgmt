@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Version 3 (Current)
 # Variable Declarations for easy writing
 repos_root="/Users/neelagarwal/Projects/DataClassRepos"
-README_mgmt="/Users/neelagarwal/Projects/README-mgmt"
+README_mgmt="/Users/neelagarwal/Projects/Shellies/Readme_stitcher"
 MASTER_README="$README_mgmt/MASTER_README.md"
+
 
 # **********************************************
 # 1) Remove the old MASTER_README.md if it exists
