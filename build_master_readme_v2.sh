@@ -77,4 +77,4 @@ done
 cd ~ || exit 1
 
 echo "|"
-echo -e "\nMASTER_README.md has been created/updated!\n"
+echo -e "MASTER_README.md has been created/updated!\n"
