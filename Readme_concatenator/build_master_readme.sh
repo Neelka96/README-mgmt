@@ -3,7 +3,7 @@
 # Version 3 (Current)
 # Variable Declarations for easy writing
 repos_root="/Users/neelagarwal/Projects/DataClassRepos"
-README_mgmt="/Users/neelagarwal/Projects/Shellies/Readme_stitcher"
+README_mgmt="/Users/neelagarwal/Projects/Shellies/Readme_concatenator"
 MASTER_README="$README_mgmt/MASTER_README.md"
 
 
